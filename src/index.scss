@@ -1,0 +1,23 @@
+@font-face {
+	font-family: Real;
+	src: url("/font/main.ttf");
+}
+* {
+	box-sizing: border-box;
+	font-family: inherit;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	//font-family: Real, sans-serif;
+	font-size: 34px;
+}
+
+h1 {
+	margin: 0;
+}
+
+button {
+	font-size: unset;
+}

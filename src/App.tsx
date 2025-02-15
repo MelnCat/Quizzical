@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.scss";
+import { useLevel } from "./util/hooks";
+import { levels } from "./level/levels";
+import { GameBox } from "./component/GameBox";
+import { Background } from "./component/shader/Background";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	const [level, setLevel] = useLevel();
+	if (level === 0)
+		return (
+			<main>
+				<GameBox>
+					<h1 className="page-title">Those Who Know</h1>
+					<button onClick={() => setLevel(1)}>i am those who know</button>
+					<div>Knws</div>
+					<Background />
+				</GameBox>
+			</main>
+		);
+	return <main>{levels[level] ?? <div>oops</div>}</main>;
 }
 
-export default App
+export default App;
