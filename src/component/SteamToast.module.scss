@@ -1,0 +1,47 @@
+.box {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+
+	background-color: #1e2229;
+	background-image: url("/img/steam.png"), linear-gradient(transparent, #0e141b);
+	background-repeat: no-repeat;
+	background-position: 160% 50%, 0 0;
+	background-size: 65%, 100%;
+	font-family: "Motiva Sans", sans-serif;
+	font-size: 10px;
+	display: flex;
+	height: 7em;
+	width: 30em;
+	align-items: center;
+	padding: 1em;
+	gap: 1.4em;
+	font-weight: 400;
+	pointer-events: none;
+}
+.image {
+	border-right: #a3cf06 0.4em solid;
+	height: 4.6em;
+	margin-left: 0.1em;
+	img {
+		width: 4.6em;
+		height: 4.6em;
+	}
+}
+.details {
+	font-size: 1.2em;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 0.1em 0;
+	height: 100%;
+}
+.name {
+	color: #e3ffc2;
+}
+.game {
+	color: #a3cf06;
+}
+.label {
+	color: #898989;
+}
