@@ -1,0 +1,46 @@
+.box {
+	font-family: "Segoe UI", sans-serif;
+	display: flex;
+	flex-direction: column;
+	background-color: #272727ee;
+	backdrop-filter: blur(12px);
+	color: #ffffff;
+	font-size: 16px;
+	padding: 1.1em 1em;
+	gap: 1em;
+	width: 23.5em;
+	position: fixed;
+	right: 1em;
+	bottom: 1em;
+	pointer-events: none;
+}
+.topBar {
+	display: flex;
+	font-size: 0.75em;
+	gap: 0.4em;
+	align-items: center;
+}
+.close {
+	margin-left: auto;
+	color: #acacac;
+	font-size: 1.1em;
+	padding-right: 0.4em;
+}
+.details {
+	display: flex;
+	flex-direction: column;
+}
+.appLogo {
+	height: 1.2em;
+}
+.bottomBar {
+	display: flex;
+	gap: 1em;
+}
+.leftImage {
+	width: 4em;
+	height: 4em;
+}
+.contents {
+	color: #acacac;
+}

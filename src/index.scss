@@ -17,7 +17,8 @@
 	font-family: inherit;
 }
 
-html, body {
+html,
+body {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
@@ -29,6 +30,19 @@ h1 {
 	margin: 0;
 }
 
+.title-button {
+	font-size: unset;
+	background-color: unset;
+	border: currentColor 4px solid;
+	padding: 0.2em 0.6em;
+	cursor: pointer;
+	&:hover {
+		background-color: #44444411;
+	}
+	&:active {
+		background-color: #4444442a;
+	}
+}
 button {
 	font-size: unset;
 	background-color: unset;
@@ -41,4 +55,50 @@ button {
 	&:active {
 		background-color: #4444442a;
 	}
+}
+
+.button-bar {
+	display: grid;
+	font-size: 1.6em;
+	gap: 0.3em;
+	grid-template-columns: repeat(2, auto);
+	button {
+		min-width: 8em;
+	}
+}
+.title {
+	font-size: 2em;
+}
+.incorrect {
+	position: absolute;
+	z-index: 2;
+	left: 50%;
+	top: 50%;
+	translate: -50% -50%;
+	rotate: 15deg;
+	font-size: 4em;
+	color: red;
+}
+
+.large-img {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	z-index: 100;
+	user-select: none;
+	cursor: none;
+}
+video.large-img {
+	object-fit: cover;
+}
+.medium-img {
+	flex-grow: 1;
+	height: 0;
+}
+
+img {
+	-webkit-user-drag: none;
 }

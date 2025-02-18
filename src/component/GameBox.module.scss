@@ -5,6 +5,8 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	padding: 1em;
+	gap: 0.5em;
 	--s: 100px; /* control the size*/
 	--c1: #ffffff;
 	--c2: #f7f7f7;
@@ -14,4 +16,5 @@
 		linear-gradient(45deg, var(--g)) 0 var(--s), linear-gradient(45deg, var(--g)) calc(var(--s) / -2) calc(var(--s) / -2), linear-gradient(225deg, var(--g)) var(--s) 0,
 		linear-gradient(225deg, var(--g)) calc(var(--s) / 2) var(--s), repeating-linear-gradient(-45deg, var(--c1) -3.125% 3.125%, var(--c2) 0 9.375%);
 	background-size: calc(2 * var(--s)) calc(2 * var(--s));
+	justify-content: center;
 }
