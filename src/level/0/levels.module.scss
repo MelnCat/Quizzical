@@ -330,11 +330,10 @@
 }
 .placedIngredient {
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 5em;
-	height: auto;
-	translate: -50% -50%;
+	left: 0;
+	bottom: 0;
+	height: auto; 
+    width: 5em;
 	cursor: grab;
 	&:active {
 		cursor: grabbing;

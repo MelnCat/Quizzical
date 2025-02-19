@@ -38,7 +38,6 @@ const orders: Order[] = [
 				ingr.at(-1) === "bread"
 			);
 		},
-		count: 2,
 	},
 	{
 		name: "Ham & Lettuce Sandwich",
@@ -55,7 +54,6 @@ const orders: Order[] = [
 				ingr.at(-1) === "bread"
 			);
 		},
-		count: 2,
 	},
 	{
 		name: "Deluxe Sandwich",
@@ -72,7 +70,6 @@ const orders: Order[] = [
 				ingr.at(-1) === "bread"
 			);
 		},
-		count: 2,
 	},
 	{
 		name: "Double-Decker Meat & Cheese Sandwich",
@@ -94,7 +91,6 @@ const orders: Order[] = [
 				!ingr.includes("lettuce")
 			);
 		},
-		count: 2,
 	},
 	{
 		name: "Double-Decker Deluxe Sandwich",
@@ -117,7 +113,6 @@ const orders: Order[] = [
 				right.includes("cheese")
 			);
 		},
-		count: 2,
 	},
 ];
 const finalOrders: Order[] = [
@@ -139,7 +134,7 @@ const finalOrders: Order[] = [
 	},
 	{
 		name: "Quintuple-Decker Ultra-Deluxe Omega Sandwich",
-		description: "A five-layered sandwich with two pieces of ham, cheese, and lettuce on each layer.",
+		description: "A five-layered sandwich with two pieces of ham, two pieces of cheese, and two pieces lettuce on each layer.",
 		validate: ingr => {
 			const breads = [...ingr.entries()].filter(x => x[1] === "bread").map(x => x[0]);
 			const layers = breads.slice(1).map((x, i) => ingr.slice(breads[i] + 1, x));
@@ -180,8 +175,8 @@ const Plate = ({ ingredients }: { ingredients: string[] }) => {
 	};
 
 	return (
-		<div ref={setNodeRef} style={style} className={styles.plate}>
-			<Sandwich ingredients={ingredients} />
+		<div style={style} className={styles.plate}>
+			<Sandwich ingredients={ingredients} ref={setNodeRef} />
 		</div>
 	);
 };
@@ -197,17 +192,26 @@ const Trash = () => {
 	);
 };
 
-export const Sandwich = ({ ingredients }: { ingredients: string[] }) => {
+export const Sandwich = ({ ingredients, ref }: { ingredients: string[]; ref: (element: HTMLElement | null) => void }) => {
 	const { attributes, listeners, setNodeRef, transform } = useDraggable({
 		id: "sandwich",
 	});
-	const style = transform
-		? {
-				transform: `translate(${transform.x}px, ${transform.y}px)`,
-		  }
-		: undefined;
+	const style = {
+		transform: transform ? `translate(${transform.x}px, ${transform.y}px)` : "",
+		height: `calc(5em + ${6 * ingredients.length}px)`,
+		translate: `-2px ${-6 * ingredients.length - 4}px`
+	};
 	return (
-		<div ref={setNodeRef} style={style} {...listeners} {...attributes} className={styles.sandwich}>
+		<div
+			ref={e => {
+				setNodeRef(e);
+				ref(e);
+			}}
+			style={style}
+			{...listeners}
+			{...attributes}
+			className={styles.sandwich}
+		>
 			{ingredients.map((x, i) => (
 				<img src={`/img/level0/${x}.png`} key={i} className={styles.placedIngredient} style={{ transform: `translateY(${-i * 6}px)` }} />
 			))}
@@ -244,7 +248,6 @@ export const Level6 = () => {
 		if (event.over.id === "delivery" && event.active.id === "sandwich") {
 			if (remaining.length === 0) return;
 			const current = remaining.at(-1)!;
-			console.log(current);
 			if (!current.validate(ingredients)) addFail(true);
 			else {
 				setScore(score + 25);

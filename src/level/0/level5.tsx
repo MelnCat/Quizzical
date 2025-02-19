@@ -40,7 +40,6 @@ export const Level5 = () => {
 	const [playMaxwell, maxwellOptions] = useSound(maxwell);
 	const [playConfetti] = useSound(confetti);
 	const [extra, setExtra] = useState<ReactNode | null>(null);
-	console.log(metalPipe);
 	const move = () => {
 		speedRef.current++;
 		setSpeed(speedRef.current);
