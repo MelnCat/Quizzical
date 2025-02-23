@@ -31,8 +31,8 @@ export const Level3 = () => {
 	}, 1500);
 	useEventListener("mousedown", () => (mouseDown.current = true));
 	useEventListener("mouseup", () => (mouseDown.current = false));
-	useEventListener("keydown", event => event.key === " " && (mouseDown.current = true));
-	useEventListener("keyup", event => event.key === " " && (mouseDown.current = false));
+	useEventListener("keydown", event => (event.key === " " || event.key === "ArrowUp") && (mouseDown.current = true));
+	useEventListener("keyup", event => (event.key === " " || event.key === "ArrowUp") && (mouseDown.current = false));
 	useInterval(() => {
 		if (state !== 0) return;
 		if (pos < 0.001) {

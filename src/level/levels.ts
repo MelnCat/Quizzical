@@ -4,6 +4,7 @@ import { Level3 } from "./0/level3";
 import { Level4 } from "./0/level4";
 import { Level5 } from "./0/level5";
 import { Level6 } from "./0/level6";
+import { Level7 } from "./0/Level7";
 
 export const levels = [
 	null,
@@ -12,5 +13,6 @@ export const levels = [
 	Level3,
 	Level4,
 	Level5,
-	Level6
+	Level6,
+	Level7
 ]
